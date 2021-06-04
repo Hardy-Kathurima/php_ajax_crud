@@ -7,8 +7,12 @@ $("#form").submit(function(e){
 	var inputs = $(this).serialize();
 
 	$.post("views/add.php",inputs,function(data){
-		$('.content').load('views/refresh.php');
-		
+
+				$('.content').load('views/refresh.php');
+				
+			    
+
+
 	})
 
 })

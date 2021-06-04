@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+.table {
+  background-color: #d0f5ff;
+}
+#form {
+  max-width: 700px;
+}
+#edit-form {
+  max-width: 600px;
+}
+.jumbotron {
+  color: white;
+  background-color: #008846;
+}
+input[type="submit"] {
+  background-color: #008ddf;
+  border: none;
+  color: white;
+}

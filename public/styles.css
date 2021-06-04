@@ -1,9 +1,0 @@
-*{
-	box-sizing: border-box;
-}
-body{
-	background-color: grey;
-}
-form{
-	max-width: 600px;
-}
