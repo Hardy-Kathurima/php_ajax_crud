@@ -44,7 +44,7 @@ if (isset($_POST['edit'])) {
         </div>
         <div class="form-group">
             <input type="tel" name="phone" class="w-50 p-2" id="phone" pattern="[0-9\s]{10}"
-                placeholder=" phone 0703642687" value="<?php echo '0' . $guest['phone']; ?> " required>
+                placeholder=" phone 0703642687" value="<?php echo '0' . $guest['phone']; ?> " readonly required>
         </div>
         <div class="form-group">
             <input type="number" name="amount" class="w-50 p-2" id="amount" min="50" max="10000" step="50"
@@ -55,6 +55,6 @@ if (isset($_POST['edit'])) {
             <input type="submit" class="btn btn-info w-50" value="update" name="edit" id="edit">
         </div>
     </form>
-</div>
-
-<?php require 'templates/footer.php'; ?>
+    <a href="index.php">
+        <--- Home </a>
+</div> <?php require 'templates/footer.php'; ?>

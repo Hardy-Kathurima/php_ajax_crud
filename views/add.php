@@ -15,7 +15,9 @@ if (isset($_POST['guest_name']) && isset($_POST['phone']) && isset($_POST['amoun
 
 		$insert = "INSERT INTO `guests` ( `guest_name`, `phone`, `amount`) VALUES ('$guest_name', '$phone', '$amount')";
 		if (!mysqli_query($conn, $insert)) {
-			echo '<p>guest already contributed</p>';
+			echo 'guest already exists choose another number';
+		} else {
+			echo 'data successfully inserted';
 		}
 	}
 }

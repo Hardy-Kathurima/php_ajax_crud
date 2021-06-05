@@ -47,19 +47,19 @@ if ($due <= 0) {
 
         <?php if (count($guests) > 0) : ?>
         <div class="stats d-flex justify-content-around mt-3 ">
-            <div class="total_guests">
+            <div class="total_guests text-info">
                 <img src="images/group.png" alt="guest icon">
                 <?php echo 'Number of guests: ' . count($guests); ?>
             </div>
-            <div class="total-contribution">
+            <div class="total-contribution text-primary">
                 <img src="images/money.png" alt="money icon">
                 <?php echo  'Total Contributions : sh ' . $sum; ?>
             </div>
-            <div class="target">
+            <div class="target text-warning">
                 <img src="images/target.png" alt="target icon">
                 <?php echo 'Target: sh ' . $target ?>
             </div>
-            <div class="amount-due">
+            <div class="amount-due text-success">
                 <img src="images/wait.png" alt="load icon">
                 <?php echo 'Amount due: sh ' . $due; ?>
             </div>

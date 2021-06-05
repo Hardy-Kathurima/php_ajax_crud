@@ -4,8 +4,11 @@ $(document).ready(function () {
 
     var inputs = $(this).serialize();
 
-    $.post("views/add.php", inputs, function () {
-      $(".content").load("views/refresh.php");
+    $.post("views/add.php", inputs, function (data) {
+      alert(data);
+      $(".content").load("views/refresh.php", function () {
+        $(".total-contribution img").show(500);
+      });
     });
   });
 });
