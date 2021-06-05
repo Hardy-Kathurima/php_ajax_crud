@@ -1,10 +1,8 @@
 <?php
-require '../database/connection.php';
-require '../functions/validate.php';
+require 'database/connection.php';
+require 'functions/validate.php';
 
-$id = $_GET['id'];
-
-
+$id = htmlspecialchars($_GET['id']);
 $select = " SELECT * FROM guests WHERE id = $id";
 $result = mysqli_query($conn, $select);
 $guest = mysqli_fetch_assoc($result);
@@ -26,7 +24,7 @@ if (isset($_POST['edit'])) {
 
         $update = "UPDATE guests  SET guest_name='$guest_name', phone='$phone', amount = '$amount' WHERE id = $edit_guest ";
         if (mysqli_query($conn, $update)) {
-            header("Location:../index.php");
+            header("Location:index.php");
         }
     }
 }
@@ -34,10 +32,10 @@ if (isset($_POST['edit'])) {
 
 ?>
 
-<?php require '../templates/header.php'; ?>
+<?php require 'templates/header.php'; ?>
 
 <div class="container p-3">
-    <h2 class="text-center mt-5">Edit user details</h2>
+    <h2 class=" mt-5">Edit Guest details</h2>
     <form method="post" class="mx-auto mt-5" id="edit-form">
         <input type="hidden" name="edit_id" value=" <?php echo $guest['id']; ?> ">
         <div class="form-group">
@@ -53,16 +51,10 @@ if (isset($_POST['edit'])) {
                 placeholder="amount" value="<?php echo $guest['amount']; ?>" required>
         </div>
 
-
         <div class="form-group">
             <input type="submit" class="btn btn-info w-50" value="update" name="edit" id="edit">
         </div>
-
-
-
     </form>
 </div>
 
-
-
-<?php require '../templates/footer.php'; ?>
+<?php require 'templates/footer.php'; ?>

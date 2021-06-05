@@ -1,21 +1,11 @@
+$(document).ready(function () {
+  $("#form").submit(function (e) {
+    e.preventDefault();
 
-$(document).ready(function(){
+    var inputs = $(this).serialize();
 
-$("#form").submit(function(e){
-	e.preventDefault();
-
-	var inputs = $(this).serialize();
-
-	$.post("views/add.php",inputs,function(data){
-
-				$('.content').load('views/refresh.php');
-				
-			    
-
-
-	})
-
-})
-
-
+    $.post("views/add.php", inputs, function () {
+      $(".content").load("views/refresh.php");
+    });
+  });
 });

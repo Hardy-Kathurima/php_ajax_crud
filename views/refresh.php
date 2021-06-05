@@ -17,15 +17,6 @@ if ($due <= 0) {
     echo 'target Achieved';
 }
 
-$search_value = '';
-// search the database
-if (isset($_POST['search']) && isset($_POST['search_value'])) {
-
-    $search_value = htmlspecialchars($_POST['search_value']);
-    $search_value = '%' . $search_value . '%';
-    $search = "SELECT *  FROM guests WHERE phone LIKE $search_value ";
-    mysqli_query($conn, $search);
-}
 
 
 ?>
@@ -50,33 +41,36 @@ if (isset($_POST['search']) && isset($_POST['search_value'])) {
     </div>
 </div>
 
-<div class="message text-center text-danger mt-3 "></div>
-<table class=" table table-bordered mt-2 text-center ">
-    <tr>
-        <th>Guest name</th>
-        <th>Mobile</th>
-        <th>Arrival time</th>
-        <th>Amount</th>
-        <th>Action</th>
 
-    </tr>
+<table class=" table table-bordered mt-2 text-center " id="myTable">
+    <thead>
+        <tr>
+            <th>Guest name</th>
+            <th>Mobile</th>
+            <th>Arrival time</th>
+            <th>Amount</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
     <?php foreach ($guests as $guest) : ?>
-    <tr>
-        <td><?php echo $guest['guest_name']; ?></td>
-        <td><?php echo '0' . $guest['phone']; ?></td>
-        <td><?php echo $guest['arrive_at']; ?></td>
-        <td><?php echo 'sh ' . $guest['amount']; ?></td>
-        <td>
+    <tbody>
+        <tr>
+            <td><?php echo $guest['guest_name']; ?></td>
+            <td><?php echo '0' . $guest['phone']; ?></td>
+            <td><?php echo $guest['arrive_at']; ?></td>
+            <td><?php echo 'sh ' . $guest['amount']; ?></td>
+            <td>
 
-            <a class="mr-3" title="edit guest" href="views/edit.php?id=<?php echo $guest['id']; ?> "><img
-                    src="images/edit.png" alt="edit icon"></a>
-            <a onclick="return confirm('Are you sure you want to delete?')" title="delete guest"
-                href="views/delete.php?id=<?php echo $guest['id']; ?>"><img src="images/delete.png"
-                    alt="delete icon"></a>
-        </td>
+                <a class="mr-3" title="edit guest" href="edit.php?id=<?php echo $guest['id']; ?> "><img
+                        src="images/edit.png" alt="edit icon"></a>
+                <a onclick="return confirm('Are you sure you want to delete?')" title="delete guest"
+                    href="views/delete.php?id=<?php echo $guest['id']; ?>"><img src="images/delete.png"
+                        alt="delete icon"></a>
+            </td>
 
-    </tr>
-
+        </tr>
+    </tbody>
 
     <?php endforeach; ?>
 

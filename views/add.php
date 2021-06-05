@@ -1,10 +1,8 @@
 <?php
-
 require '../database/connection.php';
 require '../functions/validate.php';
 
 if (isset($_POST['guest_name']) && isset($_POST['phone']) && isset($_POST['amount'])) {
-
 	$guest_name = validateInput($_POST['guest_name']);
 	$phone = validateInput($_POST['phone']);
 	$amount = validateInput($_POST['amount']);
